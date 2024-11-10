@@ -1,0 +1,155 @@
+<div class="dashboard">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="navbar-content">
+      <!-- Logo with image -->
+      <h1 class="logo">
+        <img src="assets/AI-PNG-Image.png" alt="Logo" class="logo-img" /> Sample-App
+      </h1>
+      
+      <div class="user-info">
+        <span>Welcome,  User!</span>
+        <button class="logout-btn" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </nav>
+  
+  
+
+  <!-- Charts Grid -->
+  <div class="charts-grid">
+    
+    <div class="chart-container">
+      <div class="chart-card">
+        <canvas id="chart1"></canvas>
+      </div>
+    </div>
+    <div class="chart-container">
+      <div class="chart-card">
+        <canvas id="chart2"></canvas>
+      </div>
+    </div>
+    <div class="chart-container">
+      <div class="chart-card">
+        <canvas id="chart3"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table 1: User Data -->
+  <div class="table-container">
+    <h2>User Data</h2>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>User 1</td>
+          <td>22</td>
+          <td>City 1</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>User 2</td>
+          <td>24</td>
+          <td>City 2</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>User 3</td>
+          <td>28</td>
+          <td>City 3</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>User 4</td>
+          <td>30</td>
+          <td>City 4</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Table 2: Product Data -->
+  <div class="table-container">
+    <h2>Product Data</h2>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Product</th>
+          <th>Category</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Product 1</td>
+          <td>Category 1</td>
+          <td>$10</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Product 2</td>
+          <td>Category 2</td>
+          <td>$20</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Product 3</td>
+          <td>Category 3</td>
+          <td>$30</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Product 4</td>
+          <td>Category 1</td>
+          <td>$40</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<script>
+// Static Graph Data for 3 Charts
+function createChart(chartId, data) {
+  new Chart(chartId, {
+    type: 'bar',
+    data: {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+      datasets: [
+        {
+          label: 'Data',
+          data: data,
+          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }
+      ]
+    },
+    options: {
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+}
+
+// Initialize charts with static data
+window.onload = function() {
+  createChart('chart1', [12, 19, 3, 5, 2]);
+  createChart('chart2', [10, 18, 6, 7, 4]);
+  createChart('chart3', [15, 17, 8, 6, 3]);
+}
+</script>
